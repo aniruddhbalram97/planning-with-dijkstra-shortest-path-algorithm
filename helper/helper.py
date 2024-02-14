@@ -239,3 +239,34 @@ class Dijkstra:
         else:
             valid_neighbors.append(right_top)
         return valid_neighbors
+    
+    def algorithm(self):
+        while self.open_list:
+            current_node = self.open_list.get()[1]
+            self.close_list.append(current_node)
+            if current_node == self.goal_node:
+                print("\n.. Goal Reached .. \n")
+                break
+            else:
+                valid_neighbors = self.valid_next_move(current_node)
+                for next_node in valid_neighbors:
+                    if(next_node[1] in self.close_list):
+                        continue
+                    else:
+                        cost_to_next_node = next_node[0]
+                        total_cost_to_node = self.cost_of_node[current_node] + cost_to_next_node
+                        if (next_node[1] not in self.cost_of_node or total_cost_to_node < self.cost_of_node[next_node[1]]):
+                            self.cost_of_node[next_node[1]] = total_cost_to_node
+                            self.open_list.put((total_cost_to_node, next_node[1]))
+                            self.parent_node[next_node[1]] = current_node
+        return
+    
+    def get_generated_path(self):
+        end_node = self.goal_node
+        while end_node != None:
+            self.found_path.append(end_node)
+            end_node = self.parent_node[end_node]
+        self.found_path.reverse()
+        return self.found_path
+    
+
