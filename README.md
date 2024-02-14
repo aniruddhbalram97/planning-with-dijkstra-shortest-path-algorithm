@@ -10,3 +10,22 @@
 - OpenCV
 - Numpy
 - Matplotlib
+
+### Instructions to run:
+```
+# Enter the project directory
+cd <project_directory>
+
+# Create a test_case folder
+mkdir test_case
+
+# Run the main script
+python3 main.py
+```
+
+### Demo: 
+
+Initial Node: [16, 35]
+Final Node: [30, 85]
+
+[Demo Video](https://drive.google.com/file/d/18vE7n7bd0ZO0qgFJNf2Tj-MqH7bnj_5_/view?usp=sharing)
