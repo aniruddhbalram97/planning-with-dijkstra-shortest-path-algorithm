@@ -1,6 +1,7 @@
 import numpy as np
 import math
 import cv2
+from queue import PriorityQueue
 
 class Map:
     def __init__(self, width, height, clearance, side_of_hexagon):
@@ -121,6 +122,21 @@ class Map:
         return
     
     def get_map(self):
-        self.generate_map()
         return self.canvas
+    
+class Dijkstra:
+    def __init__(self, initial_node, goal_node):
+        self.open_list = PriorityQueue()
+        self.close_list = []
+        self.cost_of_node = {}
+        self.parent_node = {}
+        self.found_path = []
+        self.initial_node = initial_node
+        self.goal_node = goal_node
+        
+        self.open_list.put((0, self.initial_node))
+        self.parent_node[self.initial_node] = None
+        self.cost_of_node[self.initial_node] = 0  
+        return
+        
     
