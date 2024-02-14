@@ -1,6 +1,7 @@
 from helper.map import Map
 from helper.dijkstra import Dijkstra
 from helper.user_input import UserInput
+from utils.plot import RecordVideo
 
 if __name__ == "__main__":
     map = Map(600, 300, 5, 75)
@@ -14,5 +15,6 @@ if __name__ == "__main__":
     dijkstra = Dijkstra(initial_node, goal_node, obstacle_map)
     dijkstra.run()
     found_path = dijkstra.get_generated_path()
-    print(found_path)
     
+    record = RecordVideo()
+    record.run(found_path, obstacle_map, "./test_case/test_case.avi")
