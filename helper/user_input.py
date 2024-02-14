@@ -21,6 +21,10 @@ class UserInput:
         self.initial_node[0] > 599 or \
         self.initial_node[1] < 0 or \
         self.initial_node[1] > 249 or \
+        self.goal_node[0] < 0 or \
+        self.goal_node[0] > 599 or \
+        self.goal_node[1] < 0 or \
+        self.goal_node[1] > 249 or \
         sum(self.obstacle_map[self.initial_node[1]][self.initial_node[0]])==765 or \
         sum(self.obstacle_map[self.goal_node[1]][self.goal_node[0]])==765
         ):

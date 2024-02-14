@@ -16,5 +16,5 @@ if __name__ == "__main__":
     dijkstra.run()
     found_path = dijkstra.get_generated_path()
     
-    record = RecordVideo()
-    record.run(found_path, obstacle_map, "./test_case/test_case.avi")
+    record = RecordVideo(found_path, obstacle_map, "./test_case/test_case.avi")
+    record.run()
