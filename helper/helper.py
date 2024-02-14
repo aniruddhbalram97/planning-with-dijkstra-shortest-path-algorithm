@@ -240,7 +240,7 @@ class Dijkstra:
             valid_neighbors.append(right_top)
         return valid_neighbors
     
-    def algorithm(self):
+    def run(self):
         while self.open_list:
             current_node = self.open_list.get()[1]
             self.close_list.append(current_node)
@@ -304,6 +304,6 @@ class Input:
         
     def take_input(self):
         self.initial_node, self.goal_node = self.enter_coordinates()
-        while(self.check_valid_entry()):
+        while(not self.check_valid_entry()):
             self.initial_node, self.goal_node = self.enter_coordinates()
         return self.initial_node, self.goal_node
